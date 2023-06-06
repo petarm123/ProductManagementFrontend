@@ -1,0 +1,27 @@
+<div class="p-grid p-dir-col p-justify-center">
+  <h1 class="mb-3">Add new product</h1>
+
+  <div class="p-col-6">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="custom-form">
+      <div class="p-field">
+        <label for="name">Name</label>
+        <input type="text" class="p-inputtext" id="name" formControlName="name" required>
+      </div>
+      <div class="p-field">
+        <label for="description">Description</label>
+        <input type="text" class="p-inputtext" id="description" formControlName="description" required>
+      </div>
+      <div class="p-field">
+        <label for="price">Price</label>
+        <input type="number" class="p-inputtext" id="price" formControlName="price" required>
+      </div>
+      <div class="p-field">
+        <label for="categories">Categories:</label>
+        <p-multiSelect [options]="categories" formControlName="categories" optionLabel="name" (ngModelChange)="updateCategories($event)"></p-multiSelect>
+      </div>
+      <div class="p-field">
+        <button type="submit" class="p-button p-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

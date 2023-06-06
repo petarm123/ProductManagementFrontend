@@ -1,0 +1,30 @@
+<div class="container my-5">
+  <h1 class="mb-3">Categories</h1>
+  <p-table [value]="categories" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[5, 10, 20]">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Products</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-category>
+      <tr>
+        <td>{{ category.categoryId }}</td>
+        <td>{{ category.name }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let product of category.products">{{ product?.name }}</li>
+          </ul>
+        </td>
+        <td><a [routerLink]="['/categories', 'edit', category.categoryId]">Edit</a></td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage" let-columns>
+      <tr>
+        <td colspan="4">No categories found</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
